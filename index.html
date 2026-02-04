@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📘 Guide Officiel Douane Paris RP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #003d82;
+            --secondary: #001f4d;
+            --accent: #d4af37;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --light: #f0f2f5;
+            --dark: #1f2937;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--dark);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 0;
+        }
+
+        .navbar-link {
+            padding: 20px 18px;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95em;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-link:hover,
+        .navbar-link.active {
+            background: rgba(255,255,255,0.1);
+            border-bottom-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero {
+            background: white;
+            border-radius: 12px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            margin-bottom: 40px;
+        }
+
+        .hero-emoji {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            color: var(--primary);
+            font-size: 2.8em;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            color: #6b7280;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+        }
+
+        .layout-guide {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 28px;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            height: fit-content;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar-title {
+            font-size: 1.1em;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .menu-category {
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 18px;
+            margin-bottom: 10px;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .menu-item {
+            padding: 10px 14px;
+            margin-bottom: 6px;
+            background: var(--light);
+            border-radius: 6px;
+            cursor: pointer;
+            border-left: 3px solid transparent;
+            font-weight: 500;
+            color: var(--dark);
+            transition: all 0.2s ease;
+            font-size: 0.9em;
+        }
+
+        .menu-item:hover {
+            background: #e8f0ff;
+            border-left-color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .menu-item.active {
+            background: var(--primary);
+            color: white;
+            border-left-color: var(--accent);
+        }
+
+        .content {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 2em;
+            margin-bottom: 28px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--primary);
+            font-weight: 700;
+        }
+
+        h3 {
+            color: var(--secondary);
+            font-size: 1.4em;
+            margin-top: 28px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        p {
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 14px;
+            font-size: 0.95em;
+        }
+
+        ul, ol {
+            margin-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            color: #4b5563;
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .box {
+            padding: 18px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+
+        .box-info {
+            background: #e8f0ff;
+            border-left-color: var(--primary);
+            color: #1f2937;
+        }
+
+        .box-success {
+            background: #d1fae5;
+            border-left-color: var(--success);
+            color: #065f46;
+        }
+
+        .box-warning {
+            background: #fef3c7;
+            border-left-color: var(--warning);
+            color: #92400e;
+        }
+
+        .box-danger {
+            background: #fee2e2;
+            border-left-color: var(--danger);
+            color: #991b1b;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+
+        table th {
+            background: var(--primary);
+            color: white;
+            padding: 14px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        table tr:nth-child(even) {
+            background: var(--light);
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin: 20px 0;
+        }
+
+        .rule-card {
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 3px solid;
+        }
+
+        .rule-card.allowed {
+            background: #f0fdf4;
+            border-left-color: var(--success);
+        }
+
+        .rule-card.denied {
+            background: #fef2f2;
+            border-left-color: var(--danger);
+        }
+
+        footer {
+            background: white;
+            padding: 28px;
+            text-align: center;
+            margin-top: 60px;
+            border-top: 2px solid var(--primary);
+        }
+
+        footer p {
+            margin: 6px 0;
+            color: #6b7280;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .layout-guide {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .rules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2em !important;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-brand">
+                <span>🇫🇷 👮</span>
+                <span>Douane Paris RP</span>
+            </div>
+            <div style="display: flex; gap: 0;">
+                <a class="navbar-link active" onclick="showPage('accueil')">🏠 Accueil</a>
+                <a class="navbar-link" onclick="showPage('guide')">📘 Guide</a>
+                <a class="navbar-link" onclick="showPage('regles')">⚖️ Règles</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- PAGE 1: ACCUEIL -->
+        <div id="accueil" class="page active">
+            <div class="hero">
+                <div class="hero-emoji">🇫🇷 🛂 💼</div>
+                <h1>Guide Officiel Douane Paris RP</h1>
+                <p>Règles Complètes & Procédures</p>
+            </div>
+
+            <div style="background: white; border-radius: 12px; padding: 40px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); margin-bottom: 40px;">
+                <h2 style="margin-top: 0;">🎯 Mission de la Douane</h2>
+                
+                <h3>Responsabilités Officielles</h3>
+                <div class="box box-info">
+                    <strong>La Douane est chargée de :</strong><br><br>
+                    ✅ Tenir les frontières de Paris<br>
+                    ✅ Contrôler les marchandises<br>
+                    ✅ Assurer la protection du territoire<br>
+                    ✅ Protéger les citoyens<br>
+                    ✅ Défendre les intérêts économiques et financiers
+                </div>
+
+                <h3>Opérations Principales</h3>
+                <div class="box box-success">
+                    <strong>La mission principale des Douaniers est d'effectuer :</strong><br><br>
+                    📍 Barrages du Sud au Nord<br>
+                    📍 Barrages du Nord au Sud<br>
+                    📍 Contrôles systématiques des passages<br>
+                    📍 Fouilles de passagers<br>
+                    📍 Interventions Go-Fast (Voiture & Bateau)
+                </div>
+
+                <h3>💰 Tarification Officielle</h3>
+                <table>
+                    <tr>
+                        <th>Catégorie</th>
+                        <th>Tarif</th>
+                        <th>Fouille</th>
+                        <th>Revenus Douane (50%)</th>
+                    </tr>
+                    <tr>
+                        <td>Civile Standard</td>
+                        <td>150€</td>
+                        <td>✅ Obligatoire</td>
+                        <td>75€</td>
+                    </tr>
+                    <tr>
+                        <td>Services Publics</td>
+                        <td>GRATUIT</td>
+                        <td>❌ Non</td>
+                        <td>0€</td>
+                    </tr>
+                </table>
+
+                <div class="box box-warning">
+                    <strong>⚠️ Facturation :</strong> UNIQUEMENT au conducteur APRÈS la fouille obligatoire. 50% du revenu versé à la Douane.
+                </div>
+            </div>
+
+            <div style="background: white; border-radius: 12px; padding: 40px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
+                <h2 style="margin-top: 0;">🚔 Partenaires Opérationnels</h2>
+                
+                <h3>Gruppe6</h3>
+                <div class="box box-success">
+                    <strong>Par l'intermédiaire des Douaniers, Gruppe6 peut :</strong><br><br>
+                    ✅ Venir en appui sur les barrages<br>
+                    ✅ Procéder à des fouilles de passagers<br>
+                    ✅ Assurer la sécurité du barrage<br>
+                    ✅ Supporter l'équipe douanière
+                </div>
+
+                <h3>Police & FDO</h3>
+                <div class="box box-info">
+                    <strong>Les Policiers peuvent :</strong><br><br>
+                    ✅ Se rendre sur un barrage par l'intermédiaire des Douaniers<br>
+                    ✅ <strong>SEULS les FDO</strong> peuvent fouiller les véhicules<br>
+                    ✅ Intervenir en cas d'arrestation<br>
+                    ✅ Collaborer sur les infractions graves
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 2: GUIDE -->
+        <div id="guide" class="page layout-guide">
+            <aside class="sidebar">
+                <div class="sidebar-title">📑 Menu</div>
+                
+                <div class="menu-category">🛂 Opérations</div>
+                <div class="menu-item active" onclick="showSection('barrages')">Barrages</div>
+                <div class="menu-item" onclick="showSection('controle')">Contrôles</div>
+                <div class="menu-item" onclick="showSection('fouilles')">Fouilles</div>
+                <div class="menu-item" onclick="showSection('armement')">Armement</div>
+
+                <div class="menu-category">💼 Procédures</div>
+                <div class="menu-item" onclick="showSection('passage')">Procédure Passage</div>
+                <div class="menu-item" onclick="showSection('infractions')">Infractions</div>
+                <div class="menu-item" onclick="showSection('go-fast')">Go-Fast</div>
+                <div class="menu-item" onclick="showSection('restrictions')">Restrictions</div>
+
+                <div class="menu-category">📡 Communications</div>
+                <div class="menu-item" onclick="showSection('radio')">Fréquences Radio</div>
+
+                <div class="menu-category">🚓 Partenaires</div>
+                <div class="menu-item" onclick="showSection('groupe6')">Gruppe6</div>
+                <div class="menu-item" onclick="showSection('police')">Police/FDO</div>
+            </aside>
+
+            <main class="content">
+                <!-- BARRAGES -->
+                <div id="barrages" class="section active">
+                    <h2>🛂 Barrages Douaniers</h2>
+                    
+                    <h3>Composition Obligatoire</h3>
+                    <div class="box box-danger">
+                        <strong>⚠️ OBLIGATOIRE :</strong> Les Douaniers doivent être minimum composés de <strong>4 agents</strong>.
+                    </div>
+
+                    <h3>Placement & Horaires</h3>
+                    <div class="box box-success">
+                        <strong>✅ Autorisé :</strong><br><br>
+                        ✅ Barrages du Sud au Nord<br>
+                        ✅ Barrages du Nord au Sud<br>
+                        ✅ Barrages permanents avec passages à tout moment<br>
+                        ✅ Rester x moment sur un barrage (jour ET nuit, SANS LIMITES)
+                    </div>
+
+                    <h3>Restrictions</h3>
+                    <div class="box box-danger">
+                        <strong>❌ INTERDIT :</strong><br><br>
+                        ❌ Effectuer 2 barrages simultanément bloquant complètement les axes du périphérique
+                    </div>
+                </div>
+
+                <!-- CONTRÔLES -->
+                <div id="controle" class="section">
+                    <h2>🔍 Contrôles de Passage</h2>
+                    
+                    <h3>Procédure Standard</h3>
+                    <ol>
+                        <li>Arrêter le véhicule poliment</li>
+                        <li>Demander les documents du conducteur</li>
+                        <li>Vérifier l'identité</li>
+                        <li>Fouiller les passagers (voir section fouilles)</li>
+                        <li>Facturer le passage au conducteur (150€ APRÈS fouille)</li>
+                        <li>Laisser passer ou procéder à arrestation</li>
+                    </ol>
+
+                    <h3>Services Publics</h3>
+                    <div class="box box-warning">
+                        <strong>⚠️ OBLIGATION :</strong> Les Douaniers sont dans l'obligation de faire passer les services publics SANS PAIEMENT.
+                    </div>
+                </div>
+
+                <!-- FOUILLES -->
+                <div id="fouilles" class="section">
+                    <h2>🔎 Fouilles de Passagers</h2>
+                    
+                    <h3>Autorisation</h3>
+                    <div class="box box-success">
+                        <strong>✅ Autorisé :</strong><br><br>
+                        ✅ Fouille des passagers (et non palpation)<br>
+                        ✅ Inspection complète des effets personnels<br>
+                        ✅ Vérification des bagages
+                    </div>
+
+                    <h3>Interdictions</h3>
+                    <div class="box box-danger">
+                        <strong>❌ INTERDIT :</strong><br><br>
+                        ❌ Fouille du véhicule par les Douaniers<br>
+                        ❌ Palpation des passagers (fouille seulement)
+                    </div>
+
+                    <h3>Support</h3>
+                    <div class="box box-info">
+                        <strong>💡 Appui Disponible :</strong><br><br>
+                        ✅ Gruppe6 peut donner main forte et procéder à des fouilles de passagers<br>
+                        ✅ FDO (Police) peuvent fouiller les véhicules si présents
+                    </div>
+                </div>
+
+                <!-- ARMEMENT -->
+                <div id="armement" class="section">
+                    <h2>🔫 Armement & Recours à la Force</h2>
+                    
+                    <h3>Droit d'Armement</h3>
+                    <div class="box box-success">
+                        <strong>✅ Autorisé :</strong><br><br>
+                        ✅ Les Douaniers peuvent faire usage de leurs propres armes du RSA<br>
+                        ✅ Même droit que n'importe quel autre métier
+                    </div>
+
+                    <h3>Recours à la Force - SANS SOMMATIONS</h3>
+                    <div class="box box-danger">
+                        <strong>🔴 ATTENTION - La Douane peut faire feu SANS SOMMATIONS si :</strong><br><br>
+                        🔴 <strong>Forçage du barrage</strong> → Mise à feu IMMÉDIATE<br>
+                        🔴 <strong>Refus d'arrêt</strong> → Mise à feu IMMÉDIATE<br>
+                        🔴 <strong>Marche arrière d'urgence</strong> → Mise à feu IMMÉDIATE<br><br>
+                        Les Citoyens peuvent forcer le barrage, mais les Douaniers peuvent faire feu SANS SOMMATIONS.
+                    </div>
+
+                    <h3>Cas de Simple Refus</h3>
+                    <div class="box box-warning">
+                        <strong>⚠️ Refus Calme :</strong><br><br>
+                        Si civile refuse calmement (sans forcer, sans marche arrière), il ne peut PAS y avoir de mise à feu.<br>
+                        → Avertissement ou appel Police.
+                    </div>
+                </div>
+
+                <!-- PASSAGE -->
+                <div id="passage" class="section">
+                    <h2>✅ Procédure Standard de Passage</h2>
+                    
+                    <h3>Étapes</h3>
+                    <ol>
+                        <li><strong>Vérification d'identité</strong> - Documents obligatoires</li>
+                        <li><strong>Fouille passagers</strong> - Vérification objets</li>
+                        <li><strong>Vérification marchandises</strong> - Si applicable</li>
+                        <li><strong>Facturation 150€</strong> - AU CONDUCTEUR APRÈS FOUILLE</li>
+                        <li><strong>Libération du passage</strong> - Si conforme</li>
+                    </ol>
+
+                    <h3>Facturation Obligatoire</h3>
+                    <div class="box box-info">
+                        <strong>💰 Important :</strong><br><br>
+                        ✅ 150€ par civile<br>
+                        ✅ Facturation UNIQUEMENT au conducteur<br>
+                        ✅ APRÈS la fouille obligatoire<br>
+                        ✅ Services publics = GRATUIT (pas de facturation)
+                    </div>
+
+                    <h3>Revenus</h3>
+                    <div class="box box-success">
+                        <strong>💵 Un bénéfice de 50% sera directement versé sur le solde de la Douane :</strong><br><br>
+                        Passage 150€ = Douane reçoit 75€
+                    </div>
+                </div>
+
+                <!-- INFRACTIONS -->
+                <div id="infractions" class="section">
+                    <h2>🚨 Infractions & Arrestations</h2>
+                    
+                    <h3>Procédure Générale</h3>
+                    <div class="box box-danger">
+                        <strong>🚨 La Douane peut placer en état d'arrestation si :</strong><br><br>
+                        ❌ Objets illégaux retrouvés<br>
+                        ❌ Armes non déclarées trouvées<br>
+                        ❌ Drogues découvertes<br><br>
+                        → INFORMER LES POLICIERS pour procédure
+                    </div>
+
+                    <h3>Armes Non Déclarées</h3>
+                    <div class="box box-danger">
+                        <strong>Procédure :</strong><br><br>
+                        1️⃣ Saisir IMMÉDIATEMENT<br>
+                        2️⃣ Police IMMÉDIATE<br>
+                        3️⃣ Documenter<br>
+                        4️⃣ Arrêter civile
+                    </div>
+
+                    <h3>Drogue</h3>
+                    <div class="box box-danger">
+                        <strong>Procédure :</strong><br><br>
+                        1️⃣ Saisir IMMÉDIATEMENT<br>
+                        2️⃣ Police IMMÉDIATE<br>
+                        3️⃣ Documenter<br>
+                        4️⃣ Arrêter civile
+                    </div>
+
+                    <h3>Corruption</h3>
+                    <div class="box box-danger">
+                        <strong>🔴 CRITIQUE :</strong><br><br>
+                        JAMAIS ACCEPTER une tentative de corruption<br>
+                        → POLICE IMMÉDIATE<br>
+                        → Arrêter civile
+                    </div>
+                </div>
+
+                <!-- GO-FAST -->
+                <div id="go-fast" class="section">
+                    <h2>🚗 Go-Fast & Opérations Spéciales</h2>
+                    
+                    <h3>Champ d'Intervention</h3>
+                    <div class="box box-success">
+                        <strong>✅ Autorisation :</strong><br><br>
+                        ✅ La Douane peut intervenir sur des Go-Fast Voiture<br>
+                        ✅ La Douane peut intervenir sur des Go-Fast Bateau
+                    </div>
+
+                    <h3>Procédure</h3>
+                    <p>Les mêmes procédures de contrôle, fouille et facturation s'appliquent aux opérations Go-Fast.</p>
+                </div>
+
+                <!-- RESTRICTIONS -->
+                <div id="restrictions" class="section">
+                    <h2>⛔ Restrictions & Interdictions</h2>
+                    
+                    <h3>Poursuites</h3>
+                    <div class="box box-danger">
+                        <strong>❌ INTERDIT :</strong><br><br>
+                        ❌ Poursuivre un civile qui refuse ou s'enfuit<br>
+                        ❌ Entamer un refus d'opération
+                    </div>
+
+                    <h3>Fouille de Véhicule</h3>
+                    <div class="box box-danger">
+                        <strong>❌ INTERDIT aux Douaniers :</strong><br><br>
+                        ❌ Fouiller le véhicule<br><br>
+                        <strong>✅ EXCLUSIF aux FDO (Police) :</strong><br>
+                        ✅ Seuls les FDO peuvent fouiller les véhicules
+                    </div>
+
+                    <h3>Barrages Multiples</h3>
+                    <div class="box box-danger">
+                        <strong>❌ INTERDIT :</strong><br><br>
+                        ❌ Effectuer 2 barrages simultanément bloquant complètement les axes du périphérique
+                    </div>
+                </div>
+
+                <!-- RADIO -->
+                <div id="radio" class="section">
+                    <h2>📡 Fréquences Radio Officielles</h2>
+                    
+                    <h3>Communication Interservices</h3>
+                    <table>
+                        <tr>
+                            <th>Fréquence</th>
+                            <th>Service</th>
+                            <th>Utilisation</th>
+                        </tr>
+                        <tr>
+                            <td><strong>📻 Radio 15</strong></td>
+                            <td><strong>SAMU</strong></td>
+                            <td>Urgences médicales, assistance sanitaire</td>
+                        </tr>
+                        <tr>
+                            <td><strong>📻 Radio 17</strong></td>
+                            <td><strong>Police Nationale</strong></td>
+                            <td>Police, interventions publiques</td>
+                        </tr>
+                        <tr>
+                            <td><strong>📻 Radio 18</strong></td>
+                            <td><strong>Pompiers</strong></td>
+                            <td>Incendies, secours, accidents</td>
+                        </tr>
+                        <tr>
+                            <td><strong>📻 Radio 19</strong></td>
+                            <td><strong>Gendarmerie</strong></td>
+                            <td>Gendarmerie, zones rurales</td>
+                        </tr>
+                        <tr>
+                            <td style="background: #e8f0ff; font-weight: bold;">📻 Radio 25</td>
+                            <td style="background: #e8f0ff; font-weight: bold;">DOUANE</td>
+                            <td style="background: #e8f0ff;">Communications internes Douane</td>
+                        </tr>
+                    </table>
+
+                    <h3>Douane - Radio 25</h3>
+                    <div class="box box-success">
+                        <strong>🔹 Fréquence Principale :</strong> Radio 25<br><br>
+                        <strong>Utilisation :</strong><br>
+                        ✅ Communications entre agents douaniers<br>
+                        ✅ Coordination des barrages<br>
+                        ✅ Alertes et signalements<br>
+                        ✅ Demandes de renfort
+                    </div>
+                </div>
+
+                <!-- GROUPE6 -->
+                <div id="groupe6" class="section">
+                    <h2>🚔 Support Gruppe6</h2>
+                    
+                    <h3>Rôle du Gruppe6</h3>
+                    <div class="box box-info">
+                        Le Gruppe6 peut venir en appui sur les barrages douaniers pour :<br>
+                        ✅ Sécuriser le barrage<br>
+                        ✅ Fouiller les passagers<br>
+                        ✅ Assurer la sécurité des agents
+                    </div>
+
+                    <h3>Limitations</h3>
+                    <ul>
+                        <li>Ne peut pas facturer (seule la Douane facture)</li>
+                        <li>Soutien opérationnel uniquement</li>
+                    </ul>
+                </div>
+
+                <!-- POLICE -->
+                <div id="police" class="section">
+                    <h2>🚓 Coordination Police & FDO</h2>
+                    
+                    <h3>Présence Police</h3>
+                    <div class="box box-info">
+                        Les Policiers peuvent se rendre sur un barrage douanier par l'intermédiaire des Douaniers.
+                    </div>
+
+                    <h3>Fouilles de Véhicules</h3>
+                    <div class="box box-success">
+                        <strong>✅ Exclusif :</strong> Seuls les FDO sont autorisés à fouiller les véhicules sur les barrages douaniers.
+                    </div>
+
+                    <h3>Procédure Arrestation</h3>
+                    <p>Les Douaniers informent la Police pour les procédures d'arrestation (objets/armes illégales).</p>
+                </div>
+            </main>
+        </div>
+
+        <!-- PAGE 3: RÈGLES OFFICIELLES -->
+        <div id="regles" class="page">
+            <div class="hero">
+                <div class="hero-emoji">⚖️</div>
+                <h1>Règles Officielles</h1>
+                <p>Récapitulatif des Autorisations & Interdictions</p>
+            </div>
+
+            <div style="background: white; border-radius: 12px; padding: 40px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
+                <h2>✅ Autorisations</h2>
+                
+                <div class="rules-grid">
+                    <div class="rule-card allowed">
+                        <h4>🛂 Barrages Sud-Nord</h4>
+                        <p>Effectuer des barrages du Sud au Nord ou Nord au Sud</p>
+                    </div>
+
+                    <div class="rule-card allowed">
+                        <h4>🔍 Fouille Passagers</h4>
+                        <p>Fouiller les passagers (pas palpation)</p>
+                    </div>
+
+                    <div class="rule-card allowed">
+                        <h4>💰 Facturation 150€</h4>
+                        <p>Facturer 150€ par civile APRÈS fouille</p>
+                    </div>
+
+                    <div class="rule-card allowed">
+                        <h4>👥 4 Agents Minimum</h4>
+                        <p>Barrage composé d'au minimum 4 agents</p>
+                    </div>
+
+                    <div class="rule-card allowed">
+                        <h4>🚔 Appui Gruppe6</h4>
+                        <p>Gruppe6 peut fouiller passagers</p>
+                    </div>
+
+                    <div class="rule-card allowed">
+                        <h4>🚨 Arrestation</h4>
+                        <p>Arrestation si objets/armes illégales</p>
+                    </div>
+
+                    <div class="rule-card allowed">
+                        <h4>🔫 Armement RSA</h4>
+                        <p>Usage propres armes du RSA autorisé</p>
+                    </div>
+
+                    <div class="rule-card allowed">
+                        <h4>🚗 Go-Fast</h4>
+                        <p>Intervenir sur Go-Fast voiture & bateau</p>
+                    </div>
+
+                    <div class="rule-card allowed">
+                        <h4>🔫 Tir Sans Sommations</h4>
+                        <p>Faire feu SANS SOMMATIONS si forçage/refus d'arrêt</p>
+                    </div>
+
+                    <div class="rule-card allowed">
+                        <h4>⏱️ Temps Illimité</h4>
+                        <p>Rester sur barrage jour/nuit sans limites</p>
+                    </div>
+                </div>
+
+                <h2 style="margin-top: 40px;">❌ Interdictions</h2>
+                
+                <div class="rules-grid">
+                    <div class="rule-card denied">
+                        <h4>🚗 Fouille Véhicule</h4>
+                        <p>Les Douaniers NE peuvent PAS fouiller véhicules</p>
+                    </div>
+
+                    <div class="rule-card denied">
+                        <h4>🛑 Poursuivre</h4>
+                        <p>Interdit de poursuivre civile qui refuse/s'enfuit</p>
+                    </div>
+
+                    <div class="rule-card denied">
+                        <h4>2️⃣ Barrages Bloquants</h4>
+                        <p>Interdiction 2 barrages simultanés bloquant périphérique</p>
+                    </div>
+
+                    <div class="rule-card denied">
+                        <h4>❌ Refus Op</h4>
+                        <p>Interdit d'entamer refus d'opération</p>
+                    </div>
+                </div>
+
+                <h2 style="margin-top: 40px;">💡 Points Importants</h2>
+
+                <div class="box box-info">
+                    <strong>💰 Tarification :</strong><br>
+                    • 150€ par civile (services publics gratuit)<br>
+                    • Douane reçoit 50% du revenu (75€)<br>
+                    • Facturation UNIQUEMENT au conducteur après fouille
+                </div>
+
+                <div class="box box-warning">
+                    <strong>⚠️ Sécurité :</strong><br>
+                    • Douaniers peuvent tirer SANS SOMMATIONS<br>
+                    • Forçage = Mise à feu autorisée<br>
+                    • Refus d'arrêt = Mise à feu autorisée<br>
+                    • Marche arrière d'urgence = Mise à feu autorisée
+                </div>
+
+                <div class="box box-success">
+                    <strong>✅ Partenariats :</strong><br>
+                    • Gruppe6 peut fouiller les passagers<br>
+                    • Police peut intervenir sur barrages<br>
+                    • Seuls FDO fouillent véhicules<br>
+                    • Radio 25 = Douane officielle
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>🇫🇷 Douane Paris RP - Guide Officiel Final</strong></p>
+        <p>Tous les agents doivent connaître et respecter ces règles</p>
+        <p><em>Version Finale - Février 2026</em></p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            
+            document.querySelectorAll('.navbar-link').forEach(l => l.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            window.scrollTo(0, 0);
+        }
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            
+            document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
